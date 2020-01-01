@@ -1,0 +1,214 @@
+							Jquery
+1. Introduction
+- jQuery là một thư viện JavaScript "viết ít, làm nhiều", nhẹ.
+- Mục đích của jQuery là làm cho việc sử dụng JavaScript trên trang web của bạn dễ dàng hơn nhiều.
+- jQuery có rất nhiều tác vụ phổ biến đòi hỏi nhiều dòng mã JavaScript để thực hiện và kết hợp chúng thành các phương thức mà bạn có thể gọi bằng một dòng mã.
+- jQuery cũng đơn giản hóa rất nhiều thứ phức tạp từ JavaScript, như các cuộc gọi AJAX và thao tác DOM.
+- Thư viện jQuery chứa các tính năng sau:
++ Thao tác HTML / DOM
++ Thao tác CSS
++ Phương thức sự kiện HTML
++ Hiệu ứng và hình ảnh động
++ AJAX
++ Tiện ích
+Mẹo: Ngoài ra, jQuery có các plugin cho hầu hết mọi tác vụ ngoài kia.
+- Tại sao lại là jQuery?
++ Có rất nhiều thư viện JavaScript khác, nhưng jQuery có lẽ là phổ biến nhất và cũng có thể mở rộng nhất.
++ Nhiều công ty lớn nhất trên Web sử dụng jQuery, như: Google, Microsoft, IBM, Netflix
++ JQuery sẽ hoạt động trong tất cả các trình duyệt?
++ Nhóm jQuery biết tất cả về các vấn đề trên trình duyệt chéo và họ đã viết kiến ​​thức này vào thư viện jQuery. 
+jQuery sẽ chạy chính xác như nhau trong tất cả các trình duyệt chính.
+2. Jquery Effects
+- Hide, show
+Example: 
+$("#color").click(function(){
+  $("p").hide();
+});
+$("#color").click(function(){
+  $("p").show();
+});
++ Tham số tốc độ tùy chọn chỉ định tốc độ ẩn / hiển thị và có thể lấy các giá trị sau: "chậm", "nhanh" hoặc mili giây.
+Example: $(selector).hide(speed,callback);
+- Fade(làm mờ)
++ fadeIn(): Phương thức jQuery được sử dụng để làm mờ dần trong một phần tử ẩn.
++ fadeOut(): Phương thức jQuery được sử dụng để làm mờ dần một phần tử hiển thị.
++ fadeToggle(): Phương thức jQuery chuyển đổi giữa fadeIn()và fadeOut() các phương thức.
+Nếu các yếu tố bị mờ dần, fadeToggle()sẽ làm mờ dần chúng trong.
+Nếu các yếu tố bị mờ dần, fadeToggle()sẽ làm mờ chúng đi.
++ fadeTo(): Phương thức jQuery cho phép mờ dần đến độ mờ nhất định (giá trị từ 0 đến 1).
+- Slide: $(selector).fadeIn(speed,callback);
++ slideDown(): Phương thức jQuery được sử dụng để trượt xuống một phần tử.
++ slideUp(): Phương thức jQuery được sử dụng để trượt lên một phần tử.
++ slideToggle():hương thức jQuery chuyển đổi giữa slideDown()và slideUp() các phương thức.
+Nếu các yếu tố đã được trượt xuống, slideToggle()sẽ trượt chúng lên.
+Nếu các yếu tố đã được trượt lên, slideToggle()sẽ trượt chúng xuống.
+- Animate(): Phương thức jQuery được sử dụng để tạo các hình động tùy chỉnh
+$(selector).animate({params},speed,callback);
++ Tham số params cần thiết xác định các thuộc tính CSS được làm động.
++ Tham số tốc độ tùy chọn chỉ định thời lượng của hiệu ứng. Nó có thể lấy các giá trị sau: "chậm", "nhanh" hoặc mili giây.
+Tham số gọi lại tùy chọn là một chức năng sẽ được thực hiện sau khi hoạt ảnh hoàn thành.Tham số gọi lại tùy chọn là một 
+chức năng sẽ được thực hiện sau khi hoạt ảnh hoàn thành.
+- Stop(): Phương thức jQuery được sử dụng để dừng hoạt ảnh hoặc hiệu ứng trước khi kết thúc.
++ Các stop()phương pháp làm việc cho tất cả các chức năng hiệu ứng jQuery, bao gồm cả trượt, mờ dần và hình ảnh động tùy chỉnh.
+$(selector).stop(stopAll,goToEnd);
+- Callback: $(selector).hide(speed,callback);
++ Các câu lệnh JavaScript được thực thi theo từng dòng. Tuy nhiên, với các hiệu ứng, dòng mã tiếp theo có thể được chạy mặc 
+dù hiệu ứng chưa kết thúc. Điều này có thể tạo ra lỗi.
++ Để ngăn chặn điều này, bạn có thể tạo một chức năng gọi lại.
++ Một hàm gọi lại được thực hiện sau khi hiệu ứng hiện tại kết thúc.
+- Chaining: 
++ Cho đến bây giờ chúng tôi đã viết từng câu lệnh jQuery (lần lượt từng câu một).
++ Tuy nhiên, có một kỹ thuật gọi là chuỗi, cho phép chúng ta chạy nhiều lệnh jQuery, lần lượt từng lệnh, trên cùng một phần tử.
++ Mẹo: Bằng cách này, trình duyệt không phải tìm (các) phần tử giống nhau nhiều lần.
++ Để xâu chuỗi một hành động, bạn chỉ cần nối hành động đó với hành động trước đó.
+Example: $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
++ Các chuỗi ví dụ trên cùng các css(), slideUp()và slideDown() phương pháp. Phần tử "p1" trước tiên chuyển sang màu đỏ, 
+sau đó trượt lên và sau đó trượt xuống:
+- (https://www.w3schools.com/jquery/jquery_ref_effects.asp)
+3. Events
+- Tất cả các hành động của khách truy cập khác nhau mà một trang web có thể phản hồi được gọi là sự kiện.
+- Một sự kiện đại diện cho thời điểm chính xác khi một cái gì đó xảy ra.
+Example:
++ di chuyển chuột qua một yếu tố
++ chọn một nút radio
++ nhấp vào một yếu tố
+-Thuật ngữ "cháy / bắn" thường được sử dụng với các sự kiện. 
+Example: "Sự kiện nhấn phím được kích hoạt, thời điểm bạn nhấn phím".
+- Dưới đây là một số sự kiện DOM phổ biến:	
+nhấp chuột()
++ click():phương pháp gắn một hàm xử lý sự kiện cho một phần tử HTML. Chức năng được thực thi khi người dùng nhấp vào phần tử HTML.
+Example:
+$("p").click(function(){
+  $(this).hide();
+});
++ dblclick(): phương pháp gắn một hàm xử lý sự kiện cho một phần tử HTML. Chức năng được thực thi khi người dùng nhấp đúp vào phần tử HTML:
+Example:
+$("p").dblclick(function(){
+  $(this).hide();
+});
++ mouseenter()phương pháp gắn một hàm xử lý sự kiện cho một phần tử HTML. Hàm được thực thi khi con trỏ chuột vào phần tử HTML.
+Example:
+$("#p1").mouseenter(function(){
+  alert("You entered p1!");
+});
++ mouseleave()phương pháp gắn một hàm xử lý sự kiện cho một phần tử HTML.Hàm được thực thi khi con trỏ chuột rời khỏi phần tử HTML
+Example:
+$("#p1").mouseleave(function(){
+  alert("Bye! You now leave p1!");
+});
++ mousedown(): phương pháp gắn một hàm xử lý sự kiện cho một phần tử HTML.
+Chức năng được thực thi, khi nhấn nút chuột trái, giữa hoặc phải, trong khi chuột ở trên phần tử HTML:
+Example:
+$("#p1").mousedown(function(){
+  alert("Mouse down over p1!");
+});
++ mouseup(): phương pháp gắn một hàm xử lý sự kiện cho một phần tử HTML.
+Chức năng được thực thi, khi nút chuột trái, giữa hoặc phải được giải phóng, trong khi chuột nằm trên phần tử HTML
+Example:
+$("#p1").mouseup(function(){
+  alert("Mouse up over p1!");
+});
++ hover(): phương pháp có hai chức năng, là sự kết hợp của mouseenter()và mouseleave() phương pháp.
+Hàm đầu tiên được thực thi khi chuột vào phần tử HTML và hàm thứ hai được thực thi khi chuột rời khỏi phần tử HTML
+Example: 
+$("#p1").hover(function(){
+  alert("You entered p1!");
+},
+function(){
+  alert("Bye! You now leave p1!");
+});
++ focus(): phương pháp gắn một hàm xử lý sự kiện cho một trường mẫu HTML.Hàm được thực thi khi trường biểu mẫu được lấy nét.
+Khi click vào ô input, màu sắc ô sẽ chuyển sang màu vàng.
+$("input").focus(function(){
+  $(this).css("background-color", "yellow");
+});
++ blur(): phương pháp gắn một hàm xử lý sự kiện cho một trường mẫu HTML.
+Hàm được thực thi khi trường biểu mẫu mất tiêu điểm.
+Khi click không click vào ô input, màu sắc ô sẽ chuyển sang xanh.
+Example:
+$("input").blur(function(){
+  $(this).css("background-color", "blue");
+});
++ Các on(): phương pháp gắn một hoặc nhiều xử lý sự kiện cho các yếu tố lựa chọn.
+Đính kèm một sự kiện nhấp chuột vào một yếu tố.
+Example: gắn vào 1 sự kiện, thay vì $("p").click(function(){ ta có thể viết như sau:
+$("p").on("click", function(){
+  $(this).hide();
+});
+Example: Nhiều sự kiện cùng một thẻ
+$("p").on({
+  mouseenter: function(){
+    $(this).css("background-color", "lightgray");
+  },
+  mouseleave: function(){
+    $(this).css("background-color", "lightblue");
+  },
+  click: function(){
+    $(this).css("background-color", "yellow");
+  }
+});
+- (https://www.w3schools.com/jquery/jquery_ref_events.asp)
+4. Traversing
+- Chuyển đổi jQuery, có nghĩa là "Traversing", được sử dụng để "tìm" (hoặc chọn) các phần tử HTML dựa trên mối 
+quan hệ của chúng với các phần tử khác. Bắt đầu với một lựa chọn và chuyển qua lựa chọn đó cho đến khi bạn đạt 
+được các yếu tố bạn mong muốn.
+Example:
+<div> <ul> <li> <span> <span> </li> </div>
+- Như ví dụ trên ta thấy, div là cha mẹ của ul và là tổ tiên của li và span. ul là cha mẹ của li, con cua div và là tổ tiên của
+span. li là cha mẹ của span, con của ul và là hậu duệ của div. span là con của li và là hậu duệ của ul và div.
+- Traversing DOM:
++ jQuery cung cấp nhiều phương thức cho phép chúng ta duyệt qua DOM.
++ Các loại phương pháp truyền tải lớn nhất là truyền qua cây.
+- Traversing Up the DOM Tree(đi qua cây dom)
++ Ba phương thức jQuery hữu ích để duyệt qua cây DOM là:
+= parent(): phương thức trả về các yếu tố phụ huynh trực tiếp của phần tử được chọn.
+Phương thức này chỉ đi qua một cấp độ duy nhất lên cây DOM
+Example:
+$(document).ready(function(){
+  $("span").parent().css({"color": "red", "border": "2px solid red"});
+});
+Với: <div> <ul> <li> <span> <span> </li> </div> ==> li là cha mẹ của span
+==Như vậy dựa vào câu lệnh trên thì thẻ li là cha mẹ của span sẽ được tô viền màu đỏ với độ dày là 2px
+= parents(): phương thức trả về tất cả các yếu tố tổ tiên của phần tử được lựa chọn, tất cả các con đường lên đến
+phần tử gốc của tài liệu ( <html>).
+Example:
+$(document).ready(function(){
+  $("span").parents().css({"color": "red", "border": "2px solid red"});
+});
+Với: <div> <ul> <li> <span> <span> </li> </div> ==> span là con của li và là hậu duệ của ul và div.
+==Như vậy dựa vào câu lệnh trên thì thẻ li là cha mẹ của span, thẻ ul và div là tổ tiên của span sẽ được tô viền màu 
+đỏ với độ dày là 2px
+==Ngoài ra, ta cũng có thể sử dụng một tham số tùy chọn để lọc tìm kiếm tổ tiên.
+Example:
+$(document).ready(function(){
+  $("span").parents("ul").css({"color": "red", "border": "2px solid red"});
+});
+Với: <div> <ul> <li> <span> <span> </li> </div> ==> span là con của li và là hậu duệ của ul và div.
+==Như vậy dựa vào câu lệnh trên thì thẻ ul được xác định nghĩa là tất cả tổ tiên của tất cả các <span>phần tử là <ul>
+sẽ được tô viền màu đỏ với độ dày là 2px.
+= parentsUntil()
+Example:
+$(document).ready(function(){
+  $("span").parentsUntil("div").css({"color": "red", "border": "2px solid red"});
+});
+Với: <div> <ul> <li> <span> <span> </li> </div> ==> span là con của li và là hậu duệ của ul và div.
+==Như vậy dựa vào câu lệnh trên thì thẻ div được xác định nghĩa là tất cả các phần tử tổ tiên giữa thẻ span và div
+sẽ được tô viền màu đỏ với độ dày là 2px.
+- (https://www.w3schools.com/jquery/jquery_ref_traversing.asp)
+- (https://www.w3schools.com/jquery/jquery_traversing_descendants.asp)
+5. Style method
+- (https://www.w3schools.com/jquery/css_css.asp)
+- (https://www.w3schools.com/jquery/jquery_css.asp)
+6. Other 
+- Ta có thể nhận thấy rằng tất cả các phương thức jQuery trong các ví dụ của chúng tôi, đều nằm trong một sự kiện sẵn sàng cho tài liệu:
+$(document).ready(function(){
+  // jQuery methods go here...
+});
+$(function(){
+  // jQuery methods go here...
+});
+- Điều này là để ngăn chặn bất kỳ mã jQuery nào chạy trước khi tải tài liệu xong (đã sẵn sàng).
+- Đó là một thực hành tốt để chờ cho tài liệu được tải đầy đủ và sẵn sàng trước khi làm việc với nó. Điều này cũng cho phép bạn có mã JavaScript trước phần thân của tài liệu, trong phần đầu.
+- Dưới đây là một số ví dụ về các hành động có thể thất bại nếu các phương thức được chạy trước khi tài liệu được tải đầy đủ:
+- Đang cố gắng che giấu một yếu tố chưa được tạo
+- Đang cố gắng lấy kích thước của hình ảnh chưa được tải
